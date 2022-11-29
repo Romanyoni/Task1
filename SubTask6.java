@@ -2,9 +2,12 @@ public class SubTask6
 {
     public static void main(String[] args)
     {
-        System.out.println("\nSubTask6. " + columNumber("abc"));
-        columnLetters(73178);
-        rightColumNumber("abc");
+        columnLetters(338);
+        columnLetters(703);
+        System.out.println(columNumber("ABC"));
+        System.out.println(columNumber("abc"));
+        System.out.println(columNumber("aaa"));
+
     }
 
     public static int columNumber(String yourInput)
@@ -28,7 +31,15 @@ public class SubTask6
         String columnLetters = "";
         for (double i = yourInput; i > 1; i = i / 26)
         {
-            columnLetters += alphabet.charAt((int) (i % 26 - 1));
+            if (i % 26 == 0)
+            {
+                columnLetters += "Z";
+                i += -0.1;
+            }
+            else
+            {
+                columnLetters += alphabet.charAt((int) (i % 26 - 1));
+            }
         }
 
         String columnLettersReverse = "";
@@ -37,10 +48,5 @@ public class SubTask6
             columnLettersReverse += columnLetters.charAt(columnLetters.length() - 1 - i);
         }
         System.out.println("SubTask6. " + columnLettersReverse);
-    }
-
-    public static void rightColumNumber(String yourInput)
-    {
-        columnLetters(columNumber(yourInput) + 1);
     }
 }
